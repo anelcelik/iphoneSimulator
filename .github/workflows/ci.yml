@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+      - name: Shell
+        working-directory: packages/iphonesim_shell
+        run: |
+          flutter pub get
+          flutter analyze
+          flutter test
+      - name: CLI
+        working-directory: packages/iphonesim
+        run: |
+          dart pub get
+          dart analyze
+          dart test
+      - name: Example
+        working-directory: example
+        run: |
+          flutter pub get
+          flutter analyze

@@ -1,0 +1,22 @@
+name: iphonesim_shell
+description: >-
+  The simulator window iphonesim puts around a Flutter app on Linux: iPhone
+  frame, screen size and safe areas, status bar, keyboard and touch input.
+version: 0.1.0
+publish_to: none
+repository: https://github.com/anelcelik/iphoneSimulator
+
+# The CLI copies these sources into the app's build folder, where they compile
+# with the app's language version. Keep the lower bound low so the analyzer
+# flags newer syntax (dot shorthands, null-aware elements...).
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.27.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
